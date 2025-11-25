@@ -4,6 +4,8 @@ ruff
 -e .
 pandas
 numpy
-scikit-learn
 matplotlib
+shap
+scikit-learn
+scipy
 imbalanced-learn

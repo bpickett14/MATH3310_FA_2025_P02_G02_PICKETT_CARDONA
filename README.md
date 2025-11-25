@@ -9,53 +9,48 @@ Project 2
 ## Project Organization
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
+├── LICENSE                    <- Open-source license if used.
+├── Makefile                   <- Convenience commands (optional).
+├── README.md                  <- The top-level README for developers.
+│
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
+│   ├── raw                    <- Original .arff Mammography dataset.
+│   ├── interim                <- Intermediate transformed data (optional).
+│   └── processed              <- Final CSV version used for modeling.
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── docs                       <- Additional documentation (optional).
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── models                     <- Saved Random Forest, tuned models, or metrics.
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── notebooks                  <- Jupyter notebooks for EDA, modeling, SHAP, etc.
+│                               Naming convention: `1.0-bp-exploration` etc.
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         MP2_ImbalancedClassification and configuration for tools like black
+├── pyproject.toml             <- Python project metadata & formatting config.
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+├── references                 <- Data dictionary, notes, papers, instructions.
 │
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
+├── reports
+│   ├── figures                <- Generated plots (EDA, metrics, SHAP, etc.)
+│   └── results                <- Any generated PDFs, HTML reports, or summaries.
 │
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+├── requirements.txt           <- Requirements file to reproduce environment.
 │
-├── setup.cfg          <- Configuration file for flake8
+├── setup.cfg                  <- Configuration for style tools (flake8, ruff, etc.)
 │
-└── MP2_ImbalancedClassification   <- Source code for use in this project.
+└── MP2_ImbalancedClassification
     │
-    ├── __init__.py             <- Makes MP2_ImbalancedClassification a Python module
+    ├── __init__.py            <- Makes module importable.
     │
-    ├── config.py               <- Store useful variables and configuration
+    ├── config.py              <- Stores constants: paths, seeds, column lists, etc.
     │
-    ├── dataset.py              <- Scripts to download or generate data
+    ├── dataset.py             <- Loads ARFF file, converts to CSV, handles data prep.
     │
-    ├── features.py             <- Code to create features for modeling
+    ├── features.py            <- Feature engineering, processing pipelines, encoders.
     │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
+    ├── modeling
+    │   ├── __init__.py
+    │   ├── train.py           <- Model training: baseline RF, weighted RF, SMOTE RF,
+    │   │                         tuned models, cross-validation, metrics.
+    │   └── predict.py         <- Inference or cross_val_predict utilities.
     │
-    └── plots.py                <- Code to create visualizations
-```
-
---------
-
+    └── plots.py               <- Visualization functions (EDA, metric plots, SHAP).
